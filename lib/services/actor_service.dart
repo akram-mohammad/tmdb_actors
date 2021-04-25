@@ -1,6 +1,7 @@
-import 'package:iti_actors/models/Actor.dart';
-import 'package:http/http.dart' as http;
 import 'dart:convert';
+
+import 'package:http/http.dart' as http;
+import 'package:iti_actors/models/Actor.dart';
 import 'package:iti_actors/models/ActorDetails.dart';
 
 class ActorService {
@@ -15,7 +16,7 @@ class ActorService {
       );
       return results;
     } else {
-      throw Exception('FAILED TO LOAD Actors');
+      throw Exception('FAILED TO LOAD ACTORS');
     }
   }
 
