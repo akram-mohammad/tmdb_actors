@@ -17,18 +17,19 @@ class Actor {
       popularity: json['popularity'].toDouble(),
       id: json['id']);
 
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> toMap(int index) {
     return {
-      DbHelper.COLUMN_ID: id,
+      DbHelper.COLUMN_ID: index,
+      DbHelper.COLUMN_IND: id,
       DbHelper.COLUMN_NAME: name,
       DbHelper.COLUMN_IMG: profilePath,
       DbHelper.COLUMN_POPULARITY: popularity,
-      DbHelper.COLUMN_DEPARTMENT: department
+      DbHelper.COLUMN_DEPARTMENT: department,
     };
   }
 
   factory Actor.fromDatabase(Map<String, dynamic> json) => Actor(
-      id: json[DbHelper.COLUMN_ID],
+      id: json[DbHelper.COLUMN_IND],
       name: json[DbHelper.COLUMN_NAME],
       profilePath: json[DbHelper.COLUMN_IMG],
       popularity: json[DbHelper.COLUMN_POPULARITY],

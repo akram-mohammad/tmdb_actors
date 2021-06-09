@@ -32,12 +32,11 @@ class DetailScreen extends StatelessWidget {
                               Icon(Icons.error),
                         ),
                       ),
-                      actorProvider.actor.birthDate != null
-                          ? ActorInfoWidget(
-                              actorProvider: actorProvider,
-                              actor: actor,
-                            )
-                          : Text(''),
+                      if (actorProvider.actor.birthDate != null)
+                        ActorInfoWidget(
+                          actorProvider: actorProvider,
+                          actor: actor,
+                        ),
                     ],
                   )
                 : Center(child: CircularProgressIndicator());

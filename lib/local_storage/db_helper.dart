@@ -10,6 +10,7 @@ class DbHelper {
   static const _DATA_BASE_VERSION = 1;
   static const _TABLE = 'actors';
   static const COLUMN_ID = 'id';
+  static const COLUMN_IND = 'ind';
   static const COLUMN_NAME = 'name';
   static const COLUMN_IMG = 'image';
   static const COLUMN_POPULARITY = 'popularity';
@@ -41,7 +42,8 @@ class DbHelper {
   Future _onCreate(Database db, int version) async {
     await db.execute('''
           CREATE TABLE $_TABLE (
-            $COLUMN_ID INTEGER PRIMARY KEY,
+            $COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+            $COLUMN_IND INTEGER,
             $COLUMN_NAME TEXT,
             $COLUMN_IMG TEXT,
             $COLUMN_POPULARITY DOUBLE,
@@ -61,6 +63,6 @@ class DbHelper {
 
   Future<List<Map<String, dynamic>>> queryAllRows() async {
     Database db = await instance.database;
-    return await db.query(_TABLE);
+    return await db.query(_TABLE, orderBy: "id");
   }
 }

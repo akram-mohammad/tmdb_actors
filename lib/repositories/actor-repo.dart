@@ -18,8 +18,10 @@ class ActorRepository {
       return dbActors;
     } else {
       final netActors = await _actorService.fetchActors(counter);
+      var index = 0 + (19 * (counter - 1));
       for (final actor in netActors) {
-        dbHelper.insert(actor.toMap());
+        dbHelper.insert(actor.toMap(index));
+        index++;
       }
       return netActors;
     }
@@ -32,13 +34,15 @@ class ActorRepository {
     if (connectivityResult == ConnectivityResult.none) {
       List<Map<String, dynamic>> dbActorsMap = await dbHelper.queryAllRows();
       final Map<String, dynamic> dbActorMap = dbActorsMap.firstWhere((element) {
-        return element[DbHelper.COLUMN_ID] == id;
+        return element[DbHelper.COLUMN_IND] == id;
       });
+      print(dbActorMap);
       ActorDetail dbActor = ActorDetail.fromDatabase(dbActorMap);
+      print(dbActor);
       return dbActor;
     } else {
       final ActorDetail netActor = await _actorService.fetchActor(id);
-      dbHelper.insert(netActor.toMap());
+      dbHelper.insert(netActor.toMap(index));
       return netActor;
     }
   }

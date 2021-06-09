@@ -37,9 +37,10 @@ class ActorDetail {
         imagesProfiles: json['images']['profiles']);
   }
 
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> toMap(int index) {
     return {
-      DbHelper.COLUMN_ID: id,
+      DbHelper.COLUMN_ID: index,
+      DbHelper.COLUMN_IND: id,
       DbHelper.COLUMN_NAME: name,
       DbHelper.COLUMN_BIRTHDAY: birthDate,
       DbHelper.COLUMN_BIRTHPLACE: birthPlace,
@@ -51,7 +52,7 @@ class ActorDetail {
   }
 
   factory ActorDetail.fromDatabase(Map<String, dynamic> json) => ActorDetail(
-      id: json[DbHelper.COLUMN_ID],
+      id: json[DbHelper.COLUMN_IND],
       name: json[DbHelper.COLUMN_NAME],
       birthDate: json[DbHelper.COLUMN_BIRTHDAY],
       birthPlace: json[DbHelper.COLUMN_BIRTHPLACE],
