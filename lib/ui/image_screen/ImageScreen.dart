@@ -47,12 +47,13 @@ class ImageScreen extends StatelessWidget {
         );
       }),
       floatingActionButton: new FloatingActionButton(
-          elevation: 5.0,
-          child: new Icon(Icons.file_download),
-          backgroundColor: Colors.blue,
-          onPressed: () {
-            _downloadImage();
-          }),
+        elevation: 5.0,
+        child: new Icon(Icons.file_download),
+        backgroundColor: Colors.blue,
+        onPressed: () {
+          _downloadImage();
+        },
+      ),
     );
   }
 }

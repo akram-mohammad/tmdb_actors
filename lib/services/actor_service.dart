@@ -11,7 +11,9 @@ class ActorService {
     );
     if (response.statusCode == 200) {
       var results = List<Actor>.from(
-        (json.decode(response.body)["results"]).map((e) => Actor.fromJson((e))),
+        (json.decode(response.body)["results"]).map(
+          (e) => Actor.fromJson((e)),
+        ),
       );
       return results;
     } else {
