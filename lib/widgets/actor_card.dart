@@ -4,7 +4,7 @@ import 'package:iti_actors/models/Actor.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 class ActorCard extends StatelessWidget {
-  final Actor actor;
+  final actor;
   ActorCard({this.actor});
   @override
   Widget build(BuildContext context) {

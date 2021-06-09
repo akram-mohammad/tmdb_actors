@@ -43,7 +43,10 @@ class ActorDetail {
       DbHelper.COLUMN_NAME: name,
       DbHelper.COLUMN_BIRTHDAY: birthDate,
       DbHelper.COLUMN_BIRTHPLACE: birthPlace,
-      DbHelper.COLUMN_BIOGRAPHY: biography
+      DbHelper.COLUMN_BIOGRAPHY: biography,
+      DbHelper.COLUMN_IMG: profilePath,
+      DbHelper.COLUMN_POPULARITY: popularity,
+      DbHelper.COLUMN_DEPARTMENT: department
     };
   }
 
@@ -52,5 +55,8 @@ class ActorDetail {
       name: json[DbHelper.COLUMN_NAME],
       birthDate: json[DbHelper.COLUMN_BIRTHDAY],
       birthPlace: json[DbHelper.COLUMN_BIRTHPLACE],
-      biography: json[DbHelper.COLUMN_BIOGRAPHY]);
+      biography: json[DbHelper.COLUMN_BIOGRAPHY],
+      profilePath: json[DbHelper.COLUMN_IMG],
+      popularity: json[DbHelper.COLUMN_POPULARITY],
+      department: json[DbHelper.COLUMN_DEPARTMENT]);
 }
