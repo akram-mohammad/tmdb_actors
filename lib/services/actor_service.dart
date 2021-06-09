@@ -1,6 +1,7 @@
-import 'package:iti_actors/models/Actor.dart';
-import 'package:http/http.dart' as http;
 import 'dart:convert';
+
+import 'package:http/http.dart' as http;
+import 'package:iti_actors/models/Actor.dart';
 import 'package:iti_actors/models/ActorDetails.dart';
 
 class ActorService {
@@ -11,13 +12,11 @@ class ActorService {
     );
     if (response.statusCode == 200) {
       var results = List<Actor>.from(
-        (json.decode(response.body)["results"]).map(
-          (e) => Actor.fromJson((e)),
-        ),
+        (json.decode(response.body)["results"]).map((e) => Actor.fromJson((e))),
       );
       return results;
     } else {
-      throw Exception('FAILED TO LOAD Actors');
+      throw Exception('FAILED TO LOAD ACTORS');
     }
   }
 
